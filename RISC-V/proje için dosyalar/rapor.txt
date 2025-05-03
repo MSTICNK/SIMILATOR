@@ -1,0 +1,92 @@
+1. Proje Başlığı
+Basit RISC-V İşlemci Simülatörü ve Görsel Arayüz Uygulaması
+
+2. Projenin Amacı
+Bu projenin amacı, açık kaynaklı RISC-V mimarisi üzerine inşa edilmiş basit bir işlemci simülatörü geliştirerek, kullanıcıların temel işlemci komutlarını deneyimlemesini sağlamaktır. Bu sayede işlemci mimarisi, register kullanımı, komut yorumlama ve hata yönetimi gibi konularda uygulamalı bir öğrenme ortamı sunulmuştur.
+
+3. Kapsam
+Proje, RISC-V mimarisinde bulunan aritmetik ve mantıksal komutları destekleyen, register yapısına sahip bir işlemci simülatörü içerir. Ayrıca kullanıcıya görsel arayüz üzerinden etkileşimli deneyim sunmak üzere sade bir GUI tasarımı da geliştirilmiştir.
+
+4. Kullanılan Teknolojiler
+Python 3.11+
+
+Tkinter (GUI için)
+
+Object-Oriented Programming (OOP) Yaklaşımı
+
+Modüler Proje Yapısı
+
+5. Dosya Yapısı ve Açıklamaları
+📁 core/
+cpu.py: Komut yorumlayıcısı, işlemleri çalıştıran ana işlemci sınıfı.
+
+memory.py: Bellek yapısını ve veri aktarımını yöneten sınıf.
+
+📁 gui/
+app.py: Arayüzün oluşturulduğu ve kullanıcı etkileşiminin sağlandığı kısım.
+
+📁 tests/
+test_cpu.py: Komutların doğru çalışıp çalışmadığını kontrol eden test fonksiyonları.
+
+📁 (dış kök dizin)
+main.py: Uygulamanın çalıştırılmasını sağlayan başlangıç noktası.
+
+6. Sistem Özellikleri
+🔹 Register Yapısı
+32 adet register (x0–x31) desteklenmektedir.
+
+x0 her zaman 0 değerindedir, değiştirilemez.
+
+Register’lara değer atanırken:
+
+Decimal: d- ile başlar (örnek: d-10)
+
+Binary: b- ile başlar (örnek: b-1010)
+
+Hatalı formatta giriş yapılırsa kullanıcıya anlamlı hata mesajı gösterilir.
+
+🔹 Komut Desteği
+Aşağıdaki RISC-V komutları desteklenmektedir:
+
+Aritmetik Komutlar
+ADD, SUB, MUL, DIV
+
+Mantıksal Komutlar
+AND, OR, XOR
+
+🔹 Komut Yazım Kuralları
+Komutlar büyük harf, register'lar küçük harf ile yazılır.
+
+Komutlar ve register'lar arasında birer boşluk bırakılmalıdır.
+
+Her komut doğru formatta değilse işlem gerçekleştirilmez.
+
+Hatalı satırlar belirtilerek kullanıcıya geri bildirim sağlanır.
+
+7. Arayüz (GUI)
+Tkinter ile hazırlanan sade ve kullanıcı dostu arayüzde şu özellikler sunulmuştur:
+
+Register değerlerini görüntüleme
+
+Değer atama alanı
+
+Komut girme alanı
+
+Geribildirim/hata mesajları
+
+Dinamik güncellenen sonuç alanı
+
+8. Sonuç
+Bu proje ile RISC-V mimarisi temelinde çalışan bir işlemci simülatörü başarıyla geliştirilmiş ve görsel olarak kullanıcıya sunulmuştur. Register kullanımı, komut yorumlama ve hata yönetimi gibi temel konular uygulamalı olarak gösterilmiştir. Proje hem eğitimsel hem de yazılım geliştirme açısından faydalı bir çalışma olmuştur.
+
+9. Katkıda Bulunanlar
+Mustafa Çanak – Genel yazılım geliştirme, register-komut mantığı, GUI tasarımı
+
+(Varsa arkadaşların adları)
+
+10. Kaynakça
+riscv.org
+
+Python Resmi Belgeleri
+
+Ders notları ve sınıf içi anlatımlar

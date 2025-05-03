@@ -1,0 +1,77 @@
+ Buraya Kadar:
+
+Proje Yapısı:
+
+core/: Bu klasörde işlemci ve bellek ile ilgili sınıflarımız var.
+gui/: Arayüz kısmı ileride buraya entegre edilecek.
+tests/: Testler ve doğrulama için kullanılan kodlar bu klasöre gelecek.
+Her sınıf için __init__() fonksiyonlarını oluşturduk, böylece her bileşenin başlangıç verilerini ayarladık.
+
+Kodun Temelleri:
+
+Processor sınıfı işlemcinin temel işlevlerini (register'lar, çalışma durumu) yöneten sınıf.
+Memory sınıfı belleği yönetiyor, veriyi yüklemek ve belleği yazdırmak için işlevler sağlıyoruz.
+Testler yazıldı: Temel testler yazıldı ve doğru çalışıp çalışmadığı kontrol ediliyor.
+
+Nereye Kadar İlerledik?
+İşlemci ve bellek sınıflarının temel yapıları ve işlevleri oluşturuldu.
+Modüler yapıyı kurduk, yani her bir bileşen (işlemci, bellek) kendi başına düzgün çalışacak şekilde yapılandırıldı.
+Temel işlevsellikleri test ettik (işlemci çalıştırma, belleğe veri yükleme).
+
+BURADAN SONRA:
+
+Şimdi projenin daha karmaşık hale gelmesini sağlayacak bazı eklemelere geçmemiz gerekiyor:
+
+İşlemcinin Gerçek Çalışma Mantığını Yazmak:
+Processor sınıfının içinde fetch, decode, execute gibi işlemleri yapabilmek için fonksiyonlar yazacağız.
+Bu işlemler, işlemcinin gerçekten nasıl çalıştığını simüle etmek için gereklidir.
+
+Bellek Yönetimini Geliştirmek:
+Belleğe farklı türde veriler (komutlar, veriler) yükleyip işlemek için fonksiyonlar ekleyeceğiz.
+Ayrıca belleği yazdırmak için daha gelişmiş işlevler ekleyeceğiz.
+
+Simülasyonun Tamamlanması:
+İşlemci ve belleği birleştirip gerçek simülasyonu başlatacağız.
+Kodlar arasında etkileşim olacak, yani işlemci veriyi belleğe yükleyecek ve işlem yapacak.
+
+Testlerin Artırılması:
+Daha fazla test senaryosu ekleyeceğiz.
+İşlemcinin ve belleğin doğruluğunu test edecek detaylı testler oluşturulacak.
+
+Arayüz Geliştirmesi:
+GUI kısmı başlatılacak ve işlemleri görsel olarak kontrol edebilecek.
+
+
+YAPMAMIZ GEREKENLER :
+
+SIRASIYLA:
+- Core (İşlemci, Bellek, Register’lar, Komut Seti) → Ana motoru yap, her şey çalışsın.
+- API (Eğer dışarıdan erişim gerekiyorsa) → Backend’in diğer parçalarla haberleşmesini sağla.
+- Test (CPU ve diğer bileşenleri doğrula) → Simülatör düzgün çalışıyor mu, hata var mı kontrol et.
+- GUI (Uygulama arayüzü oluştur) → Artık sağlam bir temel üstüne kullanıcı dostu bir arayüz ekleyebilirsin.
+
+1- Processor ve Memory'yi Geliştirme:
+
+Processor sınıfına fetch(), decode(), execute() gibi fonksiyonlar ekleyip işlemciyi gerçek anlamda çalıştıracak hale getirilmeli;
+Memory sınıfını geliştirilip, belleğe farklı türde verileri yükleyip okuma/yazma işlemleri gerçekleştirecek şekilde oluşturulmalı.
+
+2- Testler Yazmak:
+
+Testleri, her bir bileşenin doğru çalıştığından emin olacak şekilde yazmalıyız.
+Şu anki testler temel doğrulamalar yapıyor, ama işlemcinin her adımını (fetch, decode, execute) test edecek detaylı testler lazım . Her adım kontrol edilmedi testler ile.
+
+3- Kodun Entegrasyonu:
+
+Şu an her bileşen bağımsız çalışıyor. Ancak, ilerledikçe işlemci ve belleği entegre etmek gerek.
+Yani, işlemci çalıştıkça belleğe veri yükleyecek ve işlemleri gerçekleştirecek.Bizi zorlayacak kısım burası olacak.
+
+4- GUI Tasarımı (En son ,kodlama bittikten ve uygulama hazır olduktan sonra):
+
+GUI kısmında Arayüz görsel olarak oluşturulacak
+GUI, işlemcinin ve belleğin durumlarını görsel olarak gösterecek ve kullanıcıyla etkileşim kuracak.
+
+Sonuç olarak:
+Şu an temel yapıyı kurduk. Şimdi yapılması gereken şeyler:
+
+Processor ve Memory sınıflarını geliştirip işlemciyi gerçek anlamda çalıştıracak hale getirmek.
+Testleri arttırmak ve her bileşenin doğru çalıştığından emin olmak.

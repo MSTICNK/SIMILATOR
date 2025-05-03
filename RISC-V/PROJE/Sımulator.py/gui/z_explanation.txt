@@ -1,0 +1,6 @@
+GUI:
+ Arayüz uygulaması (PyQt veya Tkinter) burada olacak.(Tkinter , PyQt/GTK)
+
+gui : Arayüz (Uygulama Arayüzü)
+app.py : Ana GUI uygulamsu
+gui_helpers : Arayüz yardımcı fonksiyonları

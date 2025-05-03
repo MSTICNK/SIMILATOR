@@ -1,0 +1,107 @@
+   -REGİSTER.PY
+
+1. __init__() - Yapıcı Metot 
+Amaç: 32 tane register oluşturup başlangıçta hepsini 0 yapmak
+
+2. get_register_index(reg_name) - Register İsmini Sayıya Çevir
+Amaç: "x2", "x5" gibi string register isimlerini integer indeksine çevirmek.
+
+3. read(reg_name) - Register Değerini Oku
+Amaç: Verilen register'in içindeki değeri döndürmek
+
+4. write(reg_name, value) - Register'a Değer Yaz
+Amaç: Register'a yeni bir değer yazmak.
+
+5. dump() - Tüm Registerları Yazdır
+Amaç: Tüm registerları ekrana basmak
+
+6. set_register(reg_name, value) - Register'a Değer Atama
+Amaç: write() ile aynı ama hata mesajı basıyor
+
+7. get_register(reg_name) - Register Değerini Döndür
+Amaç: read() ile aynı ama hata mesajı basıyor
+
+
+   -PROCESSOR.PY
+
+1. __init__ (Kurucu Metot)
+şlemci için gerekli bellek (memory), register seti (registers), pipeline ve instruction seti gibi bileşenleri alıyor.
+
+2. run() - İşlemcinin Çalıştırılması
+İşlemcinin fetch → decode → execute aşamalarını bir döngü içinde tekrar tekrar çalıştırmasını sağlıyor.
+Bellek sınırına ulaşınca program sona eriyor.
+
+6. run_instruction(instruction) - Direkt Kullanıcı Komutu Çalıştırma
+Kullanıcının direkt olarak add x1, x2, x3 gibi bir komut yazıp çalıştırmasına izin veriyor.
+Örnek:
+Kullanıcı "add x1 x2 x3" yazarsa:
+x2 ve x3 okunur.
+Toplanır.
+Sonuç x1e yazılır.
+
+
+   -INSTRUCTIONS.PY
+
+
+1. __init__ (Kurucu Fonksiyon)
+registers: Registerları (yazmaçları) tutan Registers sınıfından bir nesne.
+self.instructions: Komut isimleri ile fonksiyonları eşleştiriyor. Örneğin "ADD" komutu çağrıldığında self.add() fonksiyonu çalışacak.
+
+2.  Register’a Veri Yazma - load
+rd: Hangi register'a (yazmaca) yazılacağını belirtiyor.
+value: Register’a yüklenecek değer.
+self.registers.write(rd, value): Register’a değeri yazıyor.
+
+3. Toplama İşlemi - add
+rs1, rs2: Toplanacak iki register.
+rd: Sonucun yazılacağı register.
+self.registers.read(rs1) + self.registers.read(rs2): İki register’daki değerleri toplar.
+self.registers.write(rd, result): Sonucu rd register’ına yazar.
+
+4. Çıkarma İşlemi - sub
+rs1 - rs2 işlemi yapılıyor ve rd'ye yazılıyor.
+
+5.  Çarpma İşlemi - mul
+İki register’daki değerleri çarpar ve sonucu rd'ye yazar.
+
+6. Bölme İşlemi - div
+rs2 == 0 kontrolü ile sıfıra bölme hatası önleniyor.
+Tam sayı bölme (//) kullanılıyor
+
+7. Komutları Çalıştırma - execute
+command: Kullanıcıdan gelen komut (örn. "ADD 3 1 2").
+split() ile parçalanıyor
+self.instructions[operation](*map(int, args)):
+args integer'a çevriliyor (int("3") → 3 gibi).
+Sonra self.add(3, 1, 2) gibi çağırılıyor.
+Eğer bilinmeyen bir komut varsa "Unknown instruction" yazdırılıyor.
+
+
+   -PİPELİNE.PY
+
+1. Pipeline Sınıfı
+
+memory: Bellekten komutları okumak için.
+registers: Register'ları yönetmek için.
+instruction_set: Komutları çalıştırmak için (ADD, SUB, LOAD vb.).
+instruction_register: O an çalışan komutu tutuyor.
+pc: Program Counter (hangi komutun çalışacağını gösteren sayaç).
+
+2. Fetch (Komut Getirme)
+Bellekten pc adresindeki komutu alıyor ve instruction_register değişkenine kaydediyor.
+self.memory.read(pc) ifadesi, belleğin belirtilen pc adresindeki içeriğini döndürmeli.
+
+3. Decode (Komut Çözme)
+Komutun ne işe yaradığını çözüyor ve ekrana yazdırıyor.
+Eğer instruction_register tanınmıyorsa "Bilinmeyen talimat" uyarısı veriyor.
+
+4. Execute (Komutu Çalıştır)
+Eğer LOAD komutuysa, registers.set_register(0, "data") çağırılarak register’a veri yükleniyor.
+ADD komutuysa, register 0 ve register 1 değerleri okunuyor.
+SUB komutuysa çıkarma işlemi yapılabilir.
+
+5. Pipeline Döngüsü (run_cycle)
+fetch(), decode(), execute() sırasıyla çalışıyor.
+pc (program counter) ile hangi komutun çalışacağı belirleniyor.
+
+

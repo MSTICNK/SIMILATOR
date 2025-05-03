@@ -1,0 +1,64 @@
+__İNİT__.PY DOSYASI ve __İNİT__() FONKSİYONU
+
+__init__.py Dosyası:
+
+Bu dosya, bir Python paketi oluşturduğunda o klasörün bir paket olduğunu belirler. Yani, Python’un o klasörü bir modül olarak kabul etmesini sağlar.
+Örneğin, bir core klasörüne __init__.py dosyasını eklediğinde, o klasördeki dosyalar Python tarafından bir paket olarak kabul edilir ve o klasöre import yapabilirsiniz.
+
+__init__() Fonksiyonu:
+
+Bu ise her Python sınıfı için kullanılan bir özel metottur ve o sınıfın bir nesnesi oluşturulduğunda çağrılır. Bu fonksiyon, sınıfın ilk başlatılmasında gerekli olan başlangıç verilerini (örneğin, değerler, parametreler) ayarlamak için kullanılır.
+Örneğin, işlemci sınıfının register'larını başlatmak ya da bellek boyutunu ayarlamak için kullanılır.
+
+
+__init__.py: Bir klasörü Python modülü olarak tanımlar, yani o klasörün içindeki dosyaları import edebilmeni sağlar.
+__init__(): Her sınıfın başlatıcı fonksiyonu olup, sınıfın her yeni örneği oluşturulduğunda çağrılır ve nesnenin başlangıç değerlerini ayarlar.
+
+Processor Sınıfı İçin __init__()
+İşlemci sınıfında register'ları, program counter'ı ve işlemci durumu gibi başlangıç parametrelerini ayarlamalıyız. Bu parametreler her işlemci nesnesi oluşturulduğunda belirli bir başlangıç değeri alacak.
+
+Memory Sınıfı İçin __init__()
+Bellek sınıfında ise bellek boyutunu başlatmamız gerekebilir. Örneğin, belleği bir dizi olarak temsil ediyorsak, başlangıçta belleğin belirli bir boyutta olduğunu varsayabiliriz.
+
+Test Sınıfı İçin __init__()
+Eğer testler için bir sınıf oluşturduysak, burada da testleri başlatacak bir fonksiyon olabilir.
+
+
+DOSYALARIN OLUŞTURULMA AMACI:
+
+
+1. core/processor.py
+Amacı: İşlemci sınıfını içerir. Bu sınıf, işlemcinin temel işlevlerini (register’lar, program counter, işlemci durumu) ve işlemlerini (örneğin, komutları çalıştırma) tanımlar.
+Neden: RISC-V işlemcisinin temel işlevselliğini modellemek amacıyla yazılır.
+
+2. core/memory.py
+Amacı: Bellek sınıfını içerir. Bu sınıf, belleğin (RAM) temel işlevselliklerini (belleğe veri yükleme, okuma) ve belleğin büyüklüğünü ayarlayan özellikleri içerir.
+Neden: Programın çalışması için belleğin yönetilmesi gerekir. RISC-V işlemcisi için belleği simüle eder.
+
+3. core/registers.py
+Amacı: Register sınıfını içerir. Bu sınıf, işlemcinin register’larını (genellikle 32 adet) temsil eder. Register’lar, işlemci tarafından kullanılan hızlı veri depolama alanlarıdır.
+Neden: RISC-V işlemcisinde verilerin hızlı işlenebilmesi için register’lar kullanılır, bu yüzden register’ları simüle etmek gereklidir.
+
+4. core/instructions.py
+Amacı: Komut kümesini (Instruction Set) içerir. Bu dosya, RISC-V komutlarının işlevlerini simüle eder (örneğin, ADD, SUB, LOAD komutları).
+Neden: RISC-V işlemcisi, çeşitli komutları çalıştırarak veri işler. Bu dosya, komutların nasıl çalıştığını modellemeyi sağlar.
+
+5. api/server.py
+Amacı: API sunucusu sınıfını içerir. Bu sınıf, kullanıcıdan gelen talepleri alır, işleme koyar ve gerekli yanıtları döner.
+Neden: Uygulamanın dışarıyla etkileşime geçmesi için API gerekli. Kullanıcı, uygulamayı bu API üzerinden kontrol edebilir.
+
+6. gui/app.py
+Amacı: Kullanıcı arayüzünü (GUI) içerir. Bu dosya, uygulamanın grafiksel arayüzünü oluşturur, kullanıcıya görsel bir platform sağlar.
+Neden: Kullanıcının işlemciyi ve belleği görsel olarak izleyebilmesi için GUI gereklidir.
+
+7. test/test_cpu.py
+Amacı: İşlemciyi test etmek için yazılmış testleri içerir. Bu dosya, işlemcinin doğru çalışıp çalışmadığını kontrol eden testler sunar.
+Neden: Yazdığınız sınıfların ve işlevlerin doğruluğunu test etmek için gereklidir.
+
+8. main.py
+Amacı: Uygulamanın çalıştırılabilir ana dosyasıdır. Burada, işlemci ve bellek gibi temel bileşenler başlatılır ve birbirleriyle etkileşime girer.
+Neden: Projeyi çalıştırmak için ana giriş noktasıdır. Uygulamanın temel bileşenlerini başlatmak ve koordine etmek için kullanılır.
+
+9. core/__init__.py
+Amacı: core klasörünün bir Python paketi olduğunu belirtir.
+Neden: core klasöründeki modülleri import edebilmek için gereklidir. Boş olabilir, ama varlığı paketi tanımlar.

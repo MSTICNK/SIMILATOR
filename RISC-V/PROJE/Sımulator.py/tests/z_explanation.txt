@@ -1,0 +1,4 @@
+TESTS:
+ Test dosyaları burada, simülatörün düzgün çalıştığını kontrol eder.
+
+tests : test dosyaları 

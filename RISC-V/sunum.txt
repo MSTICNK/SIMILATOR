@@ -1,0 +1,123 @@
+1. sunumum :
+
+İŞLEMCİ SİMÜLATÖRÜ
+RISC-V
+Muhammet Emin AKYÜZ
+Hilal Su SÜZGEÇ
+Mustafa ÇANAK
+Zeliha Nur ARSLAN
+
+İÇİNDEKİLER
+RISC-V NEDİR?.............................3
+RISC-V KULLANIM ALANLARI...4
+RISC-V KOMUTLARI....................5
+RISC-V REGISTERLARI................6
+PROJEMİZ.......................................7
+SONUÇ............................................20
+
+
+RISC-V NEDİR?
+Bilgisayar işlemcilerinde kullanılan bir mikroişlemci mimarisidir.
+Komut seti mimarisinde, daha az sayıda ve basit komut ile işlem yapılması fikrine dayanır.
+İşlemcilerin daha az enerjiyle, daha hızlı çalışmasını sağlar.
+Sistem, 32, 64 ve 128 bit mimari desteği sunmaktadır.
+
+
+RISC-V KULLANIM ALANLARI
+Gömülü Sistemler
+Mikrodenetleyiciler, sensör cihazları, akıllı ev cihazları, IoT sistemleri gibi yerlerde yaygın kullanılır.
+Akademik ve Eğitim Amaçlı
+ Üniversitelerde ve araştırma projelerinde öğretim ve deneysel çalışmalar için ideal.
+Yapay Zeka (AI) ve Makine Öğrenmesi (ML)
+Özel komut setleriyle donatılmış RISC-V işlemcileri, AI/ML hızlandırıcıları olarak görev alabilir.
+İşlemci Geliştirme ve Test Ortamları
+Donanım üreticileri RISC-V tabanlı mimarileri kullanarak özelleştirilebilir CPU çekirdekleri geliştirebilir.
+
+RISC-V KOMUTLARI:
+
+Aritmetik
+ADD   (TOPLAMA)
+SUB  (ÇIKARMA)
+MUL   (ÇARPMA)
+DIV  (BÖLME)
+
+
+Mantıksal
+AND  : rd = rs1 & rs2
+OR     : rd = rs1 | rs2
+XOR  : rd = rs1 ^ rs2
+
+
+Kontrol
+BEQ
+BNE
+JAL
+
+Bellek
+LW
+SW
+
+
+
+RISC-V REGISTERLARI
+
+Toplam 32 adet genel amaçlı register vardır: x0 ile x31 arası.
+
+Her register, mimariye göre 32-bit, 64-bit veya 128-bit olabilir.
+
+Komutlar, bu register'lar üzerinde aritmetik, mantıksal ve veri taşıma işlemleri yapar.
+
+x0 :Her zaman 0 değerini tutar, değiştirilemez, sıfır gerekirse kullanılır.
+
+x1 – x31: Genel amaçlı register'lardır,hesaplamalar, veri geçici saklama gibi görevlerde kullanılır.
+
+PC (Program Counter): Bir sonraki çalıştırılacak komutun adresini tutar,program akışını yönetir.
+
+
+400’den fazla şirket ve akademik kurum
+Pazar Boyutu
+1000+ açık kaynaklı proje ve araç zinciri
+Silikon üreticilerinden bulut sağlayıcılara kadar geniş bir destek yelpazesi
+RISC-V vs x86 Performans Karşılaştırması
+Yüksek Performanslı İşlemciler: x86 mimarisi, masaüstü ve sunucu sistemlerinde yüksek performans sunar. RISC-V, bu alanda henüz x86'nın gerisindedir.​
+
+Özelleştirme ve Açık Kaynak: RISC-V'nin açık kaynaklı yapısı, özel uygulamalar için özelleştirme imkanı sunar. x86 ise kapalı bir mimariye sahiptir.​
+
+Ekosistem ve Yazılım Desteği: x86, geniş bir yazılım ve donanım ekosistemine sahiptir. RISC-V'nin ekosistemi ise henüz gelişim aşamasındadır.​
+
+(Burada sözü baka bir arkadaşıma veriyorum.)
+
+2. sunumum : 
+
+uygulama kısmına geçtik . uygulamadan yazıyoruz ben bir taraftan anlatıyorum .
+
+x0 =d-0 ; atama yapılamadı , hata verildi o hatayı anlattım .
+x1 = d-5 ; atama yapıldı
+x2 = d-15 ; atama yapıldı
+
+
+ADD x3 x2 x1 
+SUB x4 x2 x1  ( bu iki işlem birlikte yazıldı , aynı anda birden fazla işlem yazabilme özelliği gösterildi . )
+
+MUL x5 x4 x1 
+DIV x6 x3 x4 (Bu iki kod da birlikte yazıldı )
+
+ADDD x1 x2 x3 ( Komut yanlış yazıldı , hata mesajı alındı , anlatıldı )
+sub x1 x2 x3  (komut küçük yazıldı , hata mesajı alındı ,anlatıldı)
+MUL x2 x3  (register eksik yazıld , hata mesajı alındı , gösterildi)
+
+x11 = b-101
+x12 = b-011
+
+ADD X13 X11 X12 
+SUB x14 x11 x12
+MUL x15 x11 x12
+DIV x16 x13 x14 ( bu 4 kod birlikte yazıldı alt alta çoklu işlem desteğine bir kere daha vurgu yaptık )
+
+AND x17 x11 x12 ; bu anlatılacak 
+OR x18 x11 x12 ;bu anlatılacak
+XOR x19 x16 x14; burası da anlatılacak ;
+
+bundan sonra bir bitiş konuşması ve dinleyecilere teşekkür faslı .
+
+

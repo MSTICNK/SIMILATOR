@@ -1,0 +1,18 @@
+1. Memory (Bellek) sınıfını düzgünce yazalım → Komutları buradan okuyacağız.
+2. InstructionSet içine gerçek işlemleri ekleyelim → add, sub gibi fonksiyonlar tam çalışmalı.
+3. Pipeline’ın execute kısmına işlemleri ekleyelim → Gerçekten register güncellemesi yapsın.
+4. Terminal üzerinden komutları alan bir main.py yazalım → Kullanıcı girdisini alsın ve çalıştırsın.
+
+
+ Bugün:
+
+Memory.py yazıp içine örnek komutları koyacağız.
+InstructionSet’e add, sub, mul, div gibi işlemleri ekleyeceğiz.
+📌 Yarın:
+
+Pipeline içine gerçek işlevleri koyacağız.
+Processor ile terminal üzerinden komutları alıp çalıştıracağız.
+📌 Sonraki Gün:
+
+Terminalde düzgün çalışan simülatör olacak.
+GUI eklemeye başlayabiliriz (istersen)

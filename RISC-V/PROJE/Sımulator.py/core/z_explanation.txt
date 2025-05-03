@@ -1,0 +1,8 @@
+CORE:
+Çekirdek kodlar burada. CPU, Register'lar, bellek vs.
+
+core : işlemci çelirdeği (cpu ve komut işleme)
+processor.py : işlemci simülatörü
+memory.py : bellek yönetimi
+registers.py : register yapıları 
+instructions.py : RISC-V komutları

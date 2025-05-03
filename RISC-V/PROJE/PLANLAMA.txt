@@ -1,0 +1,52 @@
+1. api/ Klasörü
+Bu klasör, projenin API kısmını içeriyor. Burada sunucu tarafı işlemleri olacak.
+
+server.py:
+API'yi çalıştıran Flask/FastAPI gibi bir framework kullanıyorsan burada olacak.
+Kullanıcının GUI veya dışarıdan API çağrıları ile RISC-V komutları göndermesine ve işlemciye iletilmesine yardımcı olacak.
+
+core/ Klasörü
+Bu klasör, işlemcinin asıl mantığını içeriyor.
+
+instructions.py:
+RISC-V komutlarını işleyecek.
+Örneğin: ADD, SUB, LOAD, STORE gibi komutların nasıl çalışacağını burada tanımlayacaksın.
+execute_instruction(instruction) gibi bir fonksiyon yazılabilir.
+pipeline.py (Eğer pipeline'lı bir tasarım düşünüyorsan):
+Komutların aşamalarını yönetecek (Fetch, Decode, Execute, Memory, Writeback gibi).
+
+processor.py:
+İşlemciyi yöneten ana sınıf burada olacak.
+Registerları, belleği ve komutları yönetecek.
+run() fonksiyonu ile komutları işleyecek.
+registers.py:
+
+RISC-V register’larını burada tanımlayacaksın.
+x0, x1, x2, ... gibi register'ları ve register işlemlerini içerecek.
+3. gui/ Klasörü
+Bu klasör, arayüzü içerecek.
+
+app.py:
+Arayüzün ana kısmı burada olacak.
+Butonlar, giriş kutuları, çıktı ekranı gibi bileşenler burada tanımlanacak.
+
+gui_helpers.py:
+Arayüzde tekrar kullanılacak fonksiyonlar (örn. bir register’ı ekrana yazdırma gibi).
+
+requirement/ Klasörü
+requirement.py:
+Eğer bağımlılık listesi veya proje gereksinimlerini yazdığın bir dosya gerekiyorsa burada olacak.
+5. test/ Klasörü
+Burada birim testleri olacak.
+
+test_cpu.py:
+İşlemcinin ve komutların doğru çalıştığını test etmek için pytest kullanacağız.
+Örnek: add x1, x2, x3 komutunun x3 register'ına doğru sonucu yazdığını kontrol edecek testler yazılacak.
+
+Ne Nereye Yazılacak?
+Komut fonksiyonları (add, sub, mul vb.) → instructions.py
+Register işlemleri → registers.py
+İşlemcinin ana çalışması → processor.py
+GUI kodları → app.py
+Testler → test_cpu.py
+Sunucu → server.py

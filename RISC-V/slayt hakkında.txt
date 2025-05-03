@@ -1,0 +1,130 @@
+1. RISC-V Nedir?
+Tanım:
+
+RISC-V, açık kaynaklı bir işlemci mimarisidir.
+
+"RISC" (Reduced Instruction Set Computing) prensibine dayanır. Bu, işlemciyi daha basit hale getirmek için komut setini sınırlamayı amaçlar.
+
+RISC-V, her seviyedeki tasarımlar için uygun olup, 32-bit, 64-bit, 128-bit versiyonları mevcuttur.
+
+Özellikler:
+
+Açık Kaynak: Tüm tasarım ve yazılım kodları ücretsizdir.
+
+Esneklik: Farklı uygulama gereksinimlerine göre özelleştirilebilir.
+
+Modülerlik: Temel çekirdek ve ek özelliklerle geliştirilebilir.
+
+Kullanım Alanları:
+
+Gömülü sistemler, mobil cihazlar, sunucular ve daha fazlası.
+
+2. RISC-V Komutları Nedir?
+Komutlar: RISC-V, temel işlemci komutları için belirli bir set sağlar. Her komut, bir işlemciye spesifik bir görev yaptırır. Temel komutlar aritmetik işlemler, mantıksal işlemler ve veri hareketi komutlarını içerir.
+
+Komut Seti:
+
+Arithmetik Komutlar: ADD, SUB, MUL, DIV gibi komutlarla toplama, çıkarma, çarpma, bölme işlemleri yapılır.
+
+Mantıksal Komutlar: AND, OR, XOR gibi komutlarla bit düzeyinde mantıksal işlemler yapılır.
+
+Veri Taşıma Komutları: LW (load word), SW (store word) gibi komutlarla bellek işlemleri yapılır.
+
+Kontrol Akışı Komutları: BEQ, BNE, JAL, JALR gibi komutlarla sıçramalar yapılır.
+
+3. RISC-V Register’ları Nedir?
+Register Nedir?:
+
+Registerlar, işlemci içindeki hızlı bellek alanlarıdır. Genellikle veri saklamak ve işlemci komutlarını çalıştırırken kullanılırlar.
+
+RISC-V'de 32 adet genel register vardır (x0-x31). Bu register'lar, veri depolamak ve işlem yapmak için kullanılır.
+
+Register’lar:
+
+x0: Her zaman 0, sabit değer.
+
+x1 - x31: Genel amaçlı register’lar (32 bit veya 64 bit veri depolar).
+
+Program Counter (PC): Bir register, bir sonraki komutun adresini tutar.
+
+Örnek Kullanım:
+
+Veri Saklama: x1’e veri atama.
+
+Veri İşleme: Aritmetik veya mantıksal işlemlerde register'lar kullanılır.
+
+4. Aritmetik Komutlar Nedir?
+Aritmetik komutlar, temel hesaplamalar yapmamızı sağlar. İşlemci üzerinde sayılarla işlem yapmak için kullanılır.
+
+Başlıca Aritmetik Komutlar:
+
+ADD: İki sayıyı toplar.
+
+Örnek: ADD x1 x2 x3 → x1 = x2 + x3
+
+SUB: Bir sayıyı diğerinden çıkarır.
+
+Örnek: SUB x1 x2 x3 → x1 = x2 - x3
+
+MUL: İki sayıyı çarpar.
+
+Örnek: MUL x1 x2 x3 → x1 = x2 * x3
+
+DIV: Bir sayıyı diğerine böler.
+
+Örnek: DIV x1 x2 x3 → x1 = x2 // x3 (Tam sayı bölme)
+
+5. Mantıksal Komutlar Nedir?
+Mantıksal komutlar, bit düzeyinde işlemler yapmamızı sağlar. Genellikle veri manipülasyonu ve karşılaştırmalar için kullanılır.
+
+Başlıca Mantıksal Komutlar:
+
+AND: İki sayıyı bit düzeyinde AND işlemi yapar.
+
+Örnek: AND x1 x2 x3 → x1 = x2 & x3
+
+OR: İki sayıyı bit düzeyinde OR işlemi yapar.
+
+Örnek: OR x1 x2 x3 → x1 = x2 | x3
+
+XOR: İki sayıyı bit düzeyinde XOR işlemi yapar.
+
+Örnek: XOR x1 x2 x3 → x1 = x2 ^ x3
+
+6. Proje Özeti
+Bu proje, RISC-V mimarisine dayalı bir işlemci simülatörü yapmayı amaçlar. Kullanıcı, belirli register’lar üzerinde aritmetik ve mantıksal işlemler yapabilir ve işlem sonuçlarını gözlemleyebilir.
+
+Proje Fonksiyonları:
+
+Register Değeri Atama: Kullanıcı, register'lara d- veya b- ile değer atar (decimal veya binary).
+
+İşlem Yapma: Kullanıcı, aritmetik veya mantıksal işlemleri ADD, SUB, MUL, DIV, AND, OR, XOR gibi komutlarla gerçekleştirir.
+
+Sonuç Görüntüleme: Her işlem sonrası register’ların son değerleri görüntülenir.
+
+7. Proje Arayüzü
+Projenin arayüzü, kullanıcı dostu olacak şekilde tasarlanmıştır. Kullanıcılar:
+
+Register’lara değer atayabilir,
+
+İşlem gerçekleştirebilir ve
+
+Sonuçları görsel olarak takip edebilirler.
+
+Arayüz Özellikleri:
+
+Kullanıcı dostu giriş alanları
+
+Hatalı komut girişi durumunda hata mesajları
+
+Register’lar için dinamik görüntüleme
+
+8. Hedef ve Kullanım
+Bu proje, RISC-V mimarisi ile çalışmayı öğrenmek ve işlemci simülasyonu yapmak isteyenler için bir araçtır. Ayrıca, yazılım geliştirme ve işlemci tasarımı hakkında derinlemesine bilgi edinmek isteyenler için faydalıdır.
+
+Sonuç
+RISC-V, modern işlemci tasarımı için güçlü ve esnek bir mimaridir.
+
+Aritmetik ve Mantıksal Komutlar, temel hesaplamaları ve veri manipülasyonunu sağlar.
+
+Bu proje, RISC-V komutlarını ve registerları daha iyi anlamanızı sağlar ve işlemci simülasyonunun nasıl çalıştığını gösterir.

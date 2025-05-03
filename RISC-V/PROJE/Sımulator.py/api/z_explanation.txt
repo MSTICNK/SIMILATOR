@@ -1,0 +1,10 @@
+APİ:
+Flask API burada, GUI ile iletişimini sağlar.
+
+(FLASK:Python ile web uygulamaları geliştirmek için kullanılan hafif ve esnek bir mikro framework'tür. Minimalist yapısıyla temel web servislerini hızlıca oluşturmayı sağlar. Genişletilebilirliği sayesinde eklentilerle güçlendirilebilir.)
+
+(API (Application Programming Interface), yazılımların birbiriyle iletişim kurmasını sağlayan bir arayüzdür. Bir uygulamanın, başka bir uygulamanın işlevlerine veya verilerine erişmesini sağlar.)
+
+
+api : Flask API (Simulatör ile GUI bağlantısı)
+server.py : Flask sunucusu
